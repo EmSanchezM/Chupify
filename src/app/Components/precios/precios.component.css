@@ -1,0 +1,102 @@
+.area__precio{
+    margin-top: 25px;
+}
+
+.precio__individual{
+    position: relative;
+    text-align: center;
+    background-color: #262626;
+    color: #fff;
+    margin: 0 20px;
+    padding: 30px;
+    border-radius: 3px;
+}
+
+.titulo__precio{
+    background-color: transparent;
+    border-bottom: 0;
+    padding: 15px 0;
+    border-radius: 3px 3px 0 0;
+}
+
+.titulo__precio h3{
+    margin: 0;
+    font-size: 20px;
+    letter-spacing: 1px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #fafafa;
+}
+
+.area__duracion .area__duracion span{
+    font-weight: 600;
+}
+
+.area__duracion{
+    position: relative;
+    padding: 10px 0;
+    color: #fff;
+    font-weight: 300;
+    font-size: 64px;
+    line-height: 1;
+}
+
+.area__duracion span.duracion{
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+    color: #888;
+    letter-spacing: 1px;
+    /*vertical-align: baseline;*/
+    color: #999;
+    margin: 20px 0 0 3px;
+}
+
+.area__duracion::after .caracteristicas{
+    border: 0;
+}
+
+.caracteristicas ul{
+    margin: 0;
+    padding: 15px 0;
+    list-style: none;
+}
+
+.caracteristicas li{
+    padding: 6px 0;
+    font-size: 14px;
+}
+
+.btn-precio{
+    padding: 15px 30px;
+}
+
+.btn-precio a{
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    outline: 0;
+    white-space: nowrap;
+    margin: 5px;
+    padding: 0 22px;
+    font-size: 14px;
+    height: 40px;
+    line-height: 40px;
+    background-color: #ff2670;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+}
+
+@media(max-width: 767px){
+    h3{
+        font-size: 20px;
+    }
+    .precio__individual{
+        margin-bottom: 30px;
+    }
+}

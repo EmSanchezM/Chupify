@@ -1,7 +1,6 @@
 .banner{
     position: relative;
-    /*background: url(banner.jpg);*/
-    min-height: 100vh;
+    /*min-height: 100vh;*/
     background-size: cover;
     background-position: center;
     padding: 150px 0 100px;
@@ -22,6 +21,11 @@
     font-size: 1.2em;
     line-height: 1.5em;
     color:#262626;
+}
+
+.banner__img{
+    width: 480px;
+    height: 420px;
 }
 
 .btn__comenzar{

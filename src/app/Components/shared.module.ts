@@ -5,7 +5,10 @@ import { RouterModule } from '@angular/router';
 
 import { HeaderComponent } from './header/header.component';
 import { BannerComponent } from './banner/banner.component';
+import { CardTiendasComponent } from './card-tiendas/card-tiendas.component';
+import { PreciosComponent } from './precios/precios.component';
 import { FooterComponent } from './footer/footer.component';
+
 
 @NgModule({
     imports: [
@@ -15,11 +18,16 @@ import { FooterComponent } from './footer/footer.component';
     declarations: [
         HeaderComponent, 
         BannerComponent, 
-        FooterComponent
+        CardTiendasComponent,
+        PreciosComponent,
+        FooterComponent,
+         
     ],
     exports: [
         HeaderComponent, 
         BannerComponent, 
+        CardTiendasComponent,
+        PreciosComponent,
         FooterComponent
     ],
 })
