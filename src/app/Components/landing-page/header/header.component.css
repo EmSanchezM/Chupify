@@ -1,18 +1,31 @@
 header{
-    position: absolute;
-    z-index: 10;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 75px;
     width: 100%;
+    z-index: 1;
+}
+
+.logo{
+    width: 75px;
+    height: 75px;
 }
 
 .navbar{
     padding: 20px 0px;
+    color: #393E41 !important;
+    border: 1px solid #393E41;
 }
 
 .navbar-brand{
     font-weight: 800;
     text-transform: uppercase;
     font-size: 2em;
-    color: #262626;
+    color: #393E41;
 }
 
 .nav-item{
@@ -22,8 +35,9 @@ header{
 
 .navbar-light .navbar-nav .nav-item .nav-link:hover,
 .navbar-light .navbar-nav .nav-item.active .nav-link{
-    background: #FF2670;
+    background: #98DCE3; /*#FE4739 #FF2670; #0E87FA;*/
     color: #fff;
+    border-radius: 45px;
 }
 
 .navbar-light .navbar-nav .navbar-item .nav-link{

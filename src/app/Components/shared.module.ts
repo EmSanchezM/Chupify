@@ -3,11 +3,15 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
-import { HeaderComponent } from './header/header.component';
-import { BannerComponent } from './banner/banner.component';
-import { CardTiendasComponent } from './card-tiendas/card-tiendas.component';
-import { PreciosComponent } from './precios/precios.component';
-import { FooterComponent } from './footer/footer.component';
+/*Componentes de la landing page*/ 
+import { HeaderComponent } from './landing-page/header/header.component';
+import { BannerComponent } from './landing-page/banner/banner.component';
+import { CardTiendasComponent } from './landing-page/card-tiendas/card-tiendas.component';
+import { PreciosComponent } from './landing-page/precios/precios.component';
+import { FooterComponent } from './landing-page/footer/footer.component';
+
+/*Componentes de dashboard admin*/
+import { HeaderAdminComponent } from './dashboard-page/header/header.component' 
 
 
 @NgModule({
@@ -16,11 +20,14 @@ import { FooterComponent } from './footer/footer.component';
         CommonModule
     ],
     declarations: [
+        /*Landing Page*/ 
         HeaderComponent, 
         BannerComponent, 
         CardTiendasComponent,
         PreciosComponent,
         FooterComponent,
+        /*Dashboard Page*/ 
+        HeaderAdminComponent,
          
     ],
     exports: [
@@ -28,7 +35,9 @@ import { FooterComponent } from './footer/footer.component';
         BannerComponent, 
         CardTiendasComponent,
         PreciosComponent,
-        FooterComponent
+        FooterComponent,
+
+        HeaderAdminComponent
     ],
 })
 export class SharedHomeModule { }
