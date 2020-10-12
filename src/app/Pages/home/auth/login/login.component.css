@@ -1,0 +1,24 @@
+.container{
+    margin-top: 0%;
+}
+
+/*
+.patron{
+    overflow: hidden;
+    height: 450px;
+}
+
+.patron__svg{
+    width: 100%;
+    height: 100%;
+}
+
+.svg__path{
+    stroke: none;
+    fill: #08f;
+}
+*/
+
+.card-body{
+    background-color:  #fff;
+}

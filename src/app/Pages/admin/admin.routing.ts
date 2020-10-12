@@ -5,7 +5,7 @@ import { AdminComponent } from './admin.component'
 
 const routes: Routes = [
     {
-        path: '',
+        path: 'admin',
         component: AdminComponent,
         loadChildren: () => import('./child-routes.module').then( m => m.ChildAdminRoutesModule )
    
