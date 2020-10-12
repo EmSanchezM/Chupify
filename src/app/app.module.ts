@@ -10,7 +10,6 @@ import { PagesAdminModule } from './Pages/admin/admin.module';
 @NgModule({
   declarations: [
     AppComponent,
-    PagesAdminModule
   ],
   imports: [
     PagesHomeModule,

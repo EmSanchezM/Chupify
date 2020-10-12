@@ -12,3 +12,15 @@
     display: flex;
     justify-content: space-between;
 }
+
+.fa-facebook{
+    color: #6EA8F3;
+}
+
+.fa-twitter{
+    color: #1A91DA;
+}
+
+.fa-instagram{
+    color: #EA1C52;
+}

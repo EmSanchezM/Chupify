@@ -84,12 +84,13 @@
     font-size: 14px;
     height: 40px;
     line-height: 40px;
-    background-color: #ff2670;
+    background-color: #FE4739;
     color: #fff;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
     border: none;
+    border-radius: 45px;
 }
 
 @media(max-width: 767px){

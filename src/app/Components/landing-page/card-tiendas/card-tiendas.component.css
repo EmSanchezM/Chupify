@@ -1,0 +1,10 @@
+.card{
+    width: 18rem;
+    margin-bottom: 5px;
+}
+
+.tituloLink{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}

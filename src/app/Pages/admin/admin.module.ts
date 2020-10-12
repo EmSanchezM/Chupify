@@ -5,13 +5,17 @@ import { FormsModule, ReactiveFormsModule, NgModel, NgControl } from '@angular/f
 
 import { SharedHomeModule } from '../../Components/shared.module';
 
+import {AdminComponent} from './admin.component';
+import { EstadisticasComponent } from './estadisticas/estadisticas.component'
 
 @NgModule({
     declarations: [
-        
+        AdminComponent,
+        EstadisticasComponent
     ],
     exports: [
-        
+        AdminComponent,
+        EstadisticasComponent
     ],
     imports: [
         RouterModule,

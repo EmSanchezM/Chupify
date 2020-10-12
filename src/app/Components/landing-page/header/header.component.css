@@ -5,7 +5,7 @@ header{
     align-self: center;
     flex-direction: row;
     flex-wrap: wrap;
-    height: 75px;
+    height: 65px;
     width: 100%;
     z-index: 1;
 }
@@ -18,7 +18,7 @@ header{
 .navbar{
     padding: 20px 0px;
     color: #393E41 !important;
-    border: 1px solid #393E41;
+    background-color: #F2E9E4;
 }
 
 .navbar-brand{
@@ -35,7 +35,7 @@ header{
 
 .navbar-light .navbar-nav .nav-item .nav-link:hover,
 .navbar-light .navbar-nav .nav-item.active .nav-link{
-    background: #98DCE3; /*#FE4739 #FF2670; #0E87FA;*/
+    background: #FE4739; 
     color: #fff;
     border-radius: 45px;
 }
