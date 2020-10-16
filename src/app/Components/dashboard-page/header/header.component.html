@@ -1,29 +1,69 @@
-<header class="header">
-    <div class="navbar-header">
-        <a href="#" class="navbar-brand">
-            Chupify
+<header class="navbar header navbar-expand-lg navbar-light header-fixed">
+    <div class="m-header">
+        <div class="mobile-menu" id="mobile-collapse"><span></span></div>
+        <a href="#" class="b-brand">
+            <img src="../../../../assets/images/logo/logo.png" alt="logo" class="logo-thumb">
+        </a>
+        <a href="#" class="mob-toggler">
+            <i class="fas fa-bars"></i>
         </a>
     </div>
-    <div class="navbar-collapse">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item"><a href="#" class="nav-link menu__item"><i class="fas fa-bars"></i>Inicio</a></li>
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ml-auto">
+            <li>
+                <div class="dropdown drp-user">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-user"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right profile-notification">
+                        <div class="pro-head">
+                            <img src="../../../../assets/images/auth/user_default.png" alt="user-default" class="rounded-circle">
+                            <span>Nombre</span>
+                        </div>
+                        <ul class="pro-body">
+                            <li><a href="#" class="dropdown-item"><i class="fas fa-user"></i>Perfil</a></li>
+                            <li><a href="#" class="dropdown-item"><i class="fas fa-sign-out-alt"></i>Cerrar Sesion</a></li>
+                        </ul>
+                    </div>
+                    
+                </div>
+            </li>
         </ul>
     </div>
 </header>
 
-
-
-
-<div class="menu">
-    <div class="menu__container">
-        <div class="logo">Chupify</div>
-        <ul class="navbar-nav menu__items">
-            <li class="nav-item"><a href="#" class="nav-link menu__item"><i class="fas fa-home"></i>Inicio</a></li>
-            <li class="nav-item"><a href="#" class="nav-link menu__item"><i class="fas fa-users"></i>Usuarios</a></li>
-            <li class="nav-item"><a href="#" class="nav-link menu__item"><i class="fas fa-business-time"></i>Gestion de empresas</a></li>
-            <li class="nav-item"><a href="#" class="nav-link menu__item"><i class="fab fa-amazon-pay"></i>Gestion de planes</a></li>
-            <li class="nav-item"><a href="#" class="nav-link menu__item"><i class="fas fa-home"></i>Plantillas</a></li>
-        </ul>
+<nav class="header-navbar menu-fixed">
+    <div class="navbar-wrapper">
+        <div class="navbar-content scroll-div">
+            <div>
+                <div class="main-menu-header">
+                    <img src="../../../../assets/images/auth/user_default.png" alt="user" class="img-radius">
+                    <div class="user-details">
+                        <span class="mb-0 font-weight-bold">Nombre</span>
+                        <div><small>Rol de Usuario</small></div>
+                    </div>
+                </div>
+            </div>
+            <ul class="nav header-inner-navbar">
+                <li class="navbar-item ">
+                    <a href="#" class="navbar-link header-hasmenu">
+                        <span class="icon"><i class="fas fa-home"></i></span>
+                        <span class="texto">Inicio</span>
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a href="#" class="navbar-link header-hasmenu">
+                        <span class="icon"><i class="fas fa-home"></i></span>
+                        <span class="texto">Gestion de Usuario</span>
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a href="#" class="navbar-link header-hasmenu">
+                        <span class="icon"><i class="fas fa-home"></i></span>
+                        <span class="texto">Gestion de Empresas</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
-    
-</div>
+</nav>
