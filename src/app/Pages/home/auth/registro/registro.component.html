@@ -1,68 +1,100 @@
 <br>
 <br>
-
-<div class="container">
+<div class="container mb-2">
     <div class="row">
-        <div class="col-md-6">
-            <div class="patron">
-                <!---<svg viewBox="0 0 300 150" preserveAspectRatio="none" class="patron__svg">
-                    <path d="M208.08,0.00 C152.69,67.09 262.02,75.98 200.80,150.00 L0.00,150.00 L0.00,0.00 Z" class="svg__path"></path>
-                </svg>
-                <h4>Logo</h4>-->
-            </div>
-        </div>
-        <div class="col-md-6">
-            <h3 class="text-center">Registro de <small>Empresas</small></h3>
-            <hr/>
+        <div class="col-md-10">
             <div class="card">
                 <div class="card-body">
+                    <h4 class="card-title">Registro de <small>Usuario</small></h4>
+                    <hr>
                     <form>
-                        <div class="form-group">
-                            <label for="nombre">Nombre</label>
-                            <input type="text"
-                                       name="nombre" 
-                                       class="form-control"
-                                       placeholder="Nombre"
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Datos de usuario</h4>
+                                        <div class="form-group">
+                                            <input type="text"
+                                                       name="nombre" 
+                                                       class="form-control"
+                                                       placeholder="Nombre"
+                                                >
+                                                <small class="text-danger"></small>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text"
+                                                   name="apellido"
+                                                   class="form-control"
+                                                   placeholder="Apellido"
+                                            >
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" 
+                                                   class="form-control"
+                                                   name="email"
+                                                   placeholder="Correo Eléctronico">
+                                            <small class="text-info"></small>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" 
+                                                   class="form-control"
+                                                   name="password"
+                                                   placeholder="Contraseña">
+                                            <small class="text-info"></small>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" 
+                                                   class="form-control"
+                                                   name="passwordrepeat"
+                                                   placeholder="Repita su contraseña">
+                                            <small class="text-info"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Datos de empresa</h4>
+                                        <hr>
+                                        <div class="form-group">
+                                            <label for="nombre">Empresa</label>
+                                            <input type="text"
+                                                       name="nombre" 
+                                                       class="form-control"
+                                                       placeholder="Nombre de su empresa"
+                                                >
+                                                <small class="text-danger"></small>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="rubro">Rubro</label>
+                                            <input type="text"
+                                                   name="rubro"
+                                                   class="form-control"
+                                                   placeholder="Rubro al que se dedica"
+                                            >
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="tienda">Tienda</label>
+                                            <input type="text" 
+                                                   class="form-control"
+                                                   name="tienda"
+                                                   placeholder="Nombre de la Tienda">
+                                            <small class="text-info"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row m-b-0 mt-2">
+                            <div class="offset-sm-9 col-sm-10">
+                                <button 
+                                    type="submit"
+                                    class="btn btn__registro" 
                                 >
-                                <small class="text-danger"></small>
-                        </div>
-                        <div class="form-group">
-                            <label for="apellido">Apellido</label>
-                            <input type="text"
-                                   name="apellido"
-                                   class="form-control"
-                                   placeholder="Apellido"
-                            >
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="text" 
-                                   class="form-control"
-                                   name="email"
-                                   placeholder="email">
-                            <small class="text-info"></small>
-                        </div>
-                        <div class="form-group">
-                            <label for="password">Contraseña</label>
-                            <input type="text" 
-                                   name="password" 
-                                   class="form-control"
-                                   placeholder="Contraseña">
-                            <small class="text-info"></small>
-                        </div>
-                        <div class="form-group">
-                            <label for="passwordRepeat">Repita Contraseña</label>
-                            <input type="text" 
-                                   name="passwordRepeat" 
-                                   class="form-control"
-                                   placeholder="Contraseña">
-                            <small class="text-info"></small>
-                        </div>
-                        <div class="form-group">
-                            <input type="submit"
-                                   class="btn btn-primary btn-block" 
-                                   value="Registrate"
-                            >
+                                Crea tu tienda
+                                </button>
+                            </div>
                         </div>
                     </form>
                 </div>
@@ -70,5 +102,3 @@
         </div>
     </div>
 </div>
-
-
