@@ -10,7 +10,8 @@ import { ValidadorService } from 'src/app/Services/validador.service';
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
-  styleUrls: ['./registro.component.css']
+  styleUrls: ['./registro.component.css'],
+  providers: [UsuarioService]
 })
 export class RegistroComponent implements OnInit {
 
@@ -81,20 +82,18 @@ export class RegistroComponent implements OnInit {
     }else{
       console.log(this.formRegistro.value)
       const {first_name, last_name, email, password, role, name, rubro, tienda, planpay} = this.formRegistro.value;
-      const empresa = new EmpresaRegistro('-1', first_name, last_name, email, password, role, name, rubro, tienda, planpay);
-      console.log(empresa)
+      const empresa = new EmpresaRegistro(first_name, last_name, email, password, role, name, rubro, tienda, planpay);
+      //console.log(empresa)
       this.usuarioService.registroUsuarioEmpresa(empresa).subscribe(
         response=>{
           console.log(response);
           this.formRegistro.reset();
-        },
-        error=>{
-          console.error(<any>error);
+        },error=>{
+          console.log(error)
         }
       )
     }
   }
-
 
 
 }
