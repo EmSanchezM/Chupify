@@ -7,7 +7,7 @@
                 <div class="card-body">
                     <h4 class="card-title">Registro de <small>Usuario</small></h4>
                     <hr>
-                    <form>
+                    <form [formGroup]="formRegistro" (ngSubmit)="onCreateEmpresa()">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="card">
@@ -15,39 +15,54 @@
                                         <h4 class="card-title">Datos de usuario</h4>
                                         <div class="form-group">
                                             <input type="text"
-                                                       name="nombre" 
+                                                       name="first_name"
+                                                       formControlName="first_name" 
                                                        class="form-control"
+                                                       [class.is-invalid]="nombreNoValido"
                                                        placeholder="Nombre"
                                                 >
-                                                <small class="text-danger"></small>
+                                                <small class="text-danger" *ngIf="nombreNoValido">
+                                                    Ingrese al menos 3 letras
+                                                </small>
                                         </div>
                                         <div class="form-group">
                                             <input type="text"
-                                                   name="apellido"
+                                                   name="last_name"
+                                                   formControlName="last_name" 
                                                    class="form-control"
+                                                   [class.is-invalid]="apellidoNoValido"
                                                    placeholder="Apellido"
                                             >
+                                            <small class="text-danger" *ngIf="apellidoNoValido">
+                                                Ingrese al menos 3 letras
+                                            </small>
                                         </div>
                                         <div class="form-group">
                                             <input type="text" 
-                                                   class="form-control"
                                                    name="email"
+                                                   formControlName="email" 
+                                                   class="form-control"
+                                                   [class.is-invalid]="emailNoValido"
                                                    placeholder="Correo Eléctronico">
-                                            <small class="text-info"></small>
+                                            <small class="text-danger" *ngIf="emailNoValido">Correo no valido</small>
                                         </div>
                                         <div class="form-group">
                                             <input type="password" 
-                                                   class="form-control"
                                                    name="password"
+                                                   formControlName="password" 
+                                                   class="form-control"
+                                                   [class.is-invalid]="passwordNoValido"
                                                    placeholder="Contraseña">
-                                            <small class="text-info"></small>
+                                            <small class="text-danger" *ngIf="passwordNoValido">Minimo 6 caracteres</small>
                                         </div>
                                         <div class="form-group">
                                             <input type="password" 
-                                                   class="form-control"
                                                    name="passwordrepeat"
+                                                   formControlName="passwordrepeat" 
+                                                   class="form-control"
+                                                   [class.is-invalid]="passwordrepeatNoValido"
                                                    placeholder="Repita su contraseña">
-                                            <small class="text-info"></small>
+                                            <small class="text-danger" *ngIf="passwordrepeatNoValido">Contraseña no coincide</small>
                                         </div>
                                     </div>
                                 </div>
@@ -58,29 +73,36 @@
                                         <h4 class="card-title">Datos de empresa</h4>
                                         <hr>
                                         <div class="form-group">
-                                            <label for="nombre">Empresa</label>
+                                            <label for="empresa">Empresa</label>
                                             <input type="text"
-                                                       name="nombre" 
+                                                       name="name"
+                                                       formControlName="name" 
                                                        class="form-control"
+                                                       [class.is-invalid]="empresaNoValida"
                                                        placeholder="Nombre de su empresa"
                                                 >
-                                                <small class="text-danger"></small>
+                                                <small class="text-danger" *ngIf="empresaNoValida">Minimo 4 letras</small>
                                         </div>
                                         <div class="form-group">
                                             <label for="rubro">Rubro</label>
                                             <input type="text"
                                                    name="rubro"
+                                                   formControlName="rubro"
                                                    class="form-control"
+                                                   [class.is-invalid]="rubroNoValido"
                                                    placeholder="Rubro al que se dedica"
                                             >
+                                            <small class="text-danger" *ngIf="rubroNoValido">Minimo 4 letras</small>
                                         </div>
                                         <div class="form-group">
                                             <label for="tienda">Tienda</label>
                                             <input type="text" 
                                                    class="form-control"
+                                                   [class.is-invalid]="tiendaNoValida"
                                                    name="tienda"
+                                                   formControlName="tienda"
                                                    placeholder="Nombre de la Tienda">
-                                            <small class="text-info"></small>
+                                            <small class="text-info" *ngIf="tiendaNoValida"></small>
                                         </div>
                                     </div>
                                 </div>
