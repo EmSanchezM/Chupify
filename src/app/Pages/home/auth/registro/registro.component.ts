@@ -36,6 +36,10 @@ export class RegistroComponent implements OnInit {
     return this.formRegistro.get('email').invalid && this.formRegistro.get('email').touched
   }
 
+  get emailExiste(){
+    return this.formRegistro.get('email').errors?.existeEmail;
+  }
+
   get passwordNoValido() {
     return this.formRegistro.get('password').invalid && this.formRegistro.get('password').touched
   }
@@ -72,8 +76,12 @@ export class RegistroComponent implements OnInit {
       tienda: ['', [Validators.required, Validators.minLength(4)]],
       planpay:['GRATIS', [Validators.required, Validators.minLength(4)]]
     },
-      {validators: this.validador.passwordsIguales('password', 'passwordrepeat')
-    });
+      {
+        validators: this.validador.passwordsIguales('password', 'passwordrepeat'), 
+        asyncValidators: this.validador.existeEmail('email'),
+        updateOn: 'blur'
+      }
+    );
   }
 
   onCreateEmpresa(){

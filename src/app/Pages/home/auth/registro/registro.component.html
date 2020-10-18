@@ -44,7 +44,8 @@
                                                    class="form-control"
                                                    [class.is-invalid]="emailNoValido"
                                                    placeholder="Correo Eléctronico">
-                                            <small class="text-danger" *ngIf="emailNoValido">Correo no valido</small>
+                                            <small class="text-danger" *ngIf="emailNoValido">Correo no valido </small>
+                                            <small class="text-danger" *ngIf="emailExiste">Ya esta registrado en el sistema </small>
                                         </div>
                                         <div class="form-group">
                                             <input type="password" 
