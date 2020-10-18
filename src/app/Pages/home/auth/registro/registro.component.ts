@@ -87,6 +87,9 @@ export class RegistroComponent implements OnInit {
       this.usuarioService.registroUsuarioEmpresa(empresa).subscribe(
         response=>{
           console.log(response);
+          if(response.token){
+            this.router.navigateByUrl('login');
+          }
           this.formRegistro.reset();
         },error=>{
           console.log(error)

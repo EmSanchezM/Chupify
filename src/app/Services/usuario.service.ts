@@ -26,11 +26,11 @@ export class UsuarioService {
     let params = JSON.stringify(empresa)
     return this.http.post(`${API_URL}/auth/registro`, params, {headers: this.headers}).pipe(
       map(response=> {
-        console.log('service response', response);
+
         return response;
       }),
       catchError(error=>{
-        console.log('error', error)
+        console.log('error', error.message)
         return throwError('ERROR al registrar empresa');
       })
     );
