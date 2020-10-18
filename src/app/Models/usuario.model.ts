@@ -6,7 +6,8 @@ export class Usuario {
         public last_name: string,
         public email: string,
         public password: string,
-        public role: Role
+        public role: Role,
+        public token: string
     ){
         
     }

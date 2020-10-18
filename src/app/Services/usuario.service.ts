@@ -18,7 +18,9 @@ const API_URL = environment.API;
 
 export class UsuarioService {
   public headers: HttpHeaders;
+  public userToken: string;
   public usuarios: Usuario[] = [];
+  public usuario: Usuario;
 
   constructor(private http: HttpClient, private router: Router) {
     this.headers = new HttpHeaders().set('Content-Type', 'application/json');
@@ -44,4 +46,43 @@ export class UsuarioService {
       })
     );
   }
+
+  iniciarSesion(login: Usuario){
+    let params = JSON.stringify(login);
+    return this.http.post<Usuario>(`${API_URL}/auth/login`, params, {headers: this.headers}).pipe(
+      map(response=>{
+        this.guardarToken(response['token']);
+        this.usuario = response;
+        return this.usuario;
+      }),
+      catchError(error=>{
+        return throwError('ERROR al iniciar sesion', error);
+      })
+    )
+  }
+
+  cerrarSesion(){
+    localStorage.removeItem('token');
+    this.router.navigateByUrl('login');
+  }
+
+  private guardarToken(token: string){
+    this.userToken = token;
+    localStorage.setItem('token', token);
+
+    /*let hoy = new Date();
+    hoy.setSeconds(3600);
+
+    localStorage.setItem('expira', hoy.getTime().toString());*/
+  }
+
+  private leerToken(){
+    if(localStorage.getItem('token')){
+      this.userToken = localStorage.getItem('token');
+    }else{
+      this.userToken = '';
+    }
+    return this.userToken;
+  }
+
 }
