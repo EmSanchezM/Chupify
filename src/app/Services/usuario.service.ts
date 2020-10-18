@@ -49,10 +49,11 @@ export class UsuarioService {
 
   iniciarSesion(login: Usuario){
     let params = JSON.stringify(login);
-    return this.http.post<Usuario>(`${API_URL}/auth/login`, params, {headers: this.headers}).pipe(
+    return this.http.post(`${API_URL}/auth/login`, params, {headers: this.headers}).pipe(
       map(response=>{
         this.guardarToken(response['token']);
-        this.usuario = response;
+        this.usuario = response['userFound'];
+        this.usuario.token = response['token'];
         return this.usuario;
       }),
       catchError(error=>{
