@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit {
             this.loginForm.reset();
             const { name } = usuario.role
             if(name==='EMPRESA_ROLE'){
-              alert('Soy una empresa')
+              this.router.navigateByUrl('admin')
             }else if(name==='CLIENTE_ROLE'){
               alert('Soy un cliente')
             }else if(name==='ADMIN_ROLE'){
