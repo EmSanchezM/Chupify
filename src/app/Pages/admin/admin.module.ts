@@ -6,16 +6,19 @@ import { FormsModule, ReactiveFormsModule, NgModel, NgControl } from '@angular/f
 import { SharedHomeModule } from '../../Components/shared.module';
 
 import {AdminComponent} from './admin.component';
-import { EstadisticasComponent } from './estadisticas/estadisticas.component'
+import { EstadisticasComponent } from './estadisticas/estadisticas.component';
+import { UsuariosComponent } from './usuarios/usuarios.component'
 
 @NgModule({
     declarations: [
         AdminComponent,
-        EstadisticasComponent
+        EstadisticasComponent,
+        UsuariosComponent
     ],
     exports: [
         AdminComponent,
-        EstadisticasComponent
+        EstadisticasComponent,
+        UsuariosComponent
     ],
     imports: [
         RouterModule,

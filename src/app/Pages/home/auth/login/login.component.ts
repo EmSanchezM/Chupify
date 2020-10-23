@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
     if(this.loginForm.invalid){
       return Object.values(this.loginForm.controls).forEach(control=>{control.markAsTouched(); })
     }else{
-      console.log(this.loginForm.value)
+      //console.log(this.loginForm.value)
       const {email, password } = this.loginForm.value
       this.usuario = new Usuario('','', email, password, null,'');
       this.usuarioService.iniciarSesion(this.usuario).subscribe(
@@ -52,12 +52,15 @@ export class LoginComponent implements OnInit {
           if(usuario.token){
             this.loginForm.reset();
             const { name } = usuario.role
-            if(name==='EMPRESA_ROLE'){
+            if(name==='ADMIN_ROLE'){
+              alert('Soy un admin');
               this.router.navigateByUrl('admin')
             }else if(name==='CLIENTE_ROLE'){
               alert('Soy un cliente')
-            }else if(name==='ADMIN_ROLE'){
-              alert('soy admin')
+              this.router.navigateByUrl('admin')
+            }else if(name==='EMPRESA_ROLE'){
+              alert('soy empresa')
+              this.router.navigateByUrl('admin')
             }
           }
         }
