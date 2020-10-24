@@ -12,7 +12,7 @@ import { FooterComponent } from './landing-page/footer/footer.component';
 
 /*Componentes de dashboard admin*/
 import { HeaderAdminComponent } from './dashboard-page/header/header.component';
-import { SidebarComponent } from './dashboard-page/sidebar/sidebar.component'; 
+
 
 
 @NgModule({
@@ -28,9 +28,7 @@ import { SidebarComponent } from './dashboard-page/sidebar/sidebar.component';
         PreciosComponent,
         FooterComponent,
         /*Dashboard Page*/ 
-        HeaderAdminComponent,
-        SidebarComponent,
-         
+        HeaderAdminComponent
     ],
     exports: [
         HeaderComponent, 
@@ -39,8 +37,7 @@ import { SidebarComponent } from './dashboard-page/sidebar/sidebar.component';
         PreciosComponent,
         FooterComponent,
 
-        HeaderAdminComponent,
-        SidebarComponent
+        HeaderAdminComponent
     ],
 })
 export class SharedHomeModule { }
