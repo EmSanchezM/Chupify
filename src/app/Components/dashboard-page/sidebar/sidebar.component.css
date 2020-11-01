@@ -1,0 +1,20 @@
+nz-sider {
+    overflow: auto;
+    height: 100%;
+    position: fixed;
+    left: 0;
+}
+
+nz-header {
+    background: #fff;
+    padding: 0;
+    /*margin-left: 180px;*/
+
+}
+
+
+.logo {
+    height: 32px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 16px;
+}

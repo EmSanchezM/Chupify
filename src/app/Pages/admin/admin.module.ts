@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule, NgModel, NgControl } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { SharedHomeModule } from '../../Components/shared.module';
 
 import {AdminComponent} from './admin.component';
 import { EstadisticasComponent } from './estadisticas/estadisticas.component';
-import { UsuariosComponent } from './usuarios/usuarios.component'
+import { UsuariosComponent } from './usuarios/usuarios.component';
 
 @NgModule({
     declarations: [

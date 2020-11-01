@@ -6,7 +6,7 @@ import {UsuariosComponent} from './usuarios/usuarios.component';
 
 const childAdminRoutes: Routes = [
     {
-        path: '/',
+        path: 'inicio',
         component: EstadisticasComponent
     },
     {

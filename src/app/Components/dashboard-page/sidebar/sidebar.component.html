@@ -1,0 +1,27 @@
+<nz-sider 
+    ngCollapsible
+    [(nzCollapsed)]="isCollapse"
+    [nzTrigger]="null"
+    >
+    
+    <div class="logo"></div>
+    <nz-header>
+        <i nz-icon class="trigger" [nzType]="isCollapse ? 'menu-unfold' : 'menu-fold'" (click)="isCollapse = !isCollapse"></i>
+    </nz-header>
+    <ul nz-menu nzTheme="dark" nzMode="inline">
+        <li nz-menu-item>
+            <a routerLink="inicio">
+                <i nz-icon nzType="home" nzTheme="fill"></i>
+                <span>Inicio</span>
+            </a>
+        </li>
+        <li nz-menu-item>
+            <i nz-icon nzType="user" nzTheme="outline"></i>
+            <span>Usuarios</span>
+        </li>
+        <li nz-menu-item>
+            <i nz-icon nzType="shop" nzTheme="outline"></i>
+            <span>Empresas</span>
+        </li>
+    </ul>
+</nz-sider>

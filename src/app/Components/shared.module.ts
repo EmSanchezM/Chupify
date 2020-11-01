@@ -2,6 +2,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { NgZorroModule } from 'src/app/ng-zorro/ng-zorro.module';
 
 /*Componentes de la landing page*/ 
 import { HeaderComponent } from './landing-page/header/header.component';
@@ -11,14 +12,13 @@ import { PreciosComponent } from './landing-page/precios/precios.component';
 import { FooterComponent } from './landing-page/footer/footer.component';
 
 /*Componentes de dashboard admin*/
-import { HeaderAdminComponent } from './dashboard-page/header/header.component';
-
-
+import { SidebarAdminComponent } from './dashboard-page/sidebar/sidebar.component';
 
 @NgModule({
     imports: [
         RouterModule,
-        CommonModule
+        CommonModule,
+        NgZorroModule
     ],
     declarations: [
         /*Landing Page*/ 
@@ -28,16 +28,17 @@ import { HeaderAdminComponent } from './dashboard-page/header/header.component';
         PreciosComponent,
         FooterComponent,
         /*Dashboard Page*/ 
-        HeaderAdminComponent
+        SidebarAdminComponent
     ],
     exports: [
+        NgZorroModule,
         HeaderComponent, 
         BannerComponent, 
         CardTiendasComponent,
         PreciosComponent,
         FooterComponent,
 
-        HeaderAdminComponent
+        SidebarAdminComponent
     ],
 })
 export class SharedHomeModule { }
