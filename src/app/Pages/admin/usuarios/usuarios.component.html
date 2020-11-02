@@ -1,37 +1,82 @@
-<div class="row">
+<div class="row animated fadeIn fast">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                
+                <input type="text"
+                        class="form-control"
+                        placeholder="Buscar Usuario..."
+                        #txtTermino
+                        />
+
+            </div>
+        </div>
+    </div>
+</div> 
+
+<div class="row mt-2">
     <div class="col-12">
         <div class="card">
             <div class="card-body">
                 <div class="row">
                     <div class="col-8">
-                        <h4 class="card-title">Usuarios (0)</h4>
+                        <h4 class="card-title">Usuarios ({{usuarios.length}})</h4>
+                        <div class="alert alert-danger" *ngIf="status">
+                            <span>{{ mensaje }}</span>
+                        </div>
                     </div>
                     <div class="col-4 mb-2">
                         <div class="text-right">
-                            <button class="btn btn-primary">
-                                <i class="fas fa-plus"></i>
+                            <button nz-button nzType="primary" nzValue="large">
+                                <i nz-icon nzType="user-add" nzTheme="outline"></i>
                                 <span>Crear Usuario</span>
                             </button>
                         </div>
                     </div>
                 </div>
-                <div class="table-responsive">
-                    <table class="table table-bordered">
+                <div class="table-responsive mt-2">
+                    <nz-table
+                        class="table table-bordered" 
+                        #basicTable 
+                        #rowSelectionTable
+                        [nzData]="usuarios"
+                        [nzPageSize]="5"
+                        nzShowPagination
+                        >
                         <thead>
-                            <th>Nombre</th>
-                            <th>Apellido</th>
-                            <th>email</th>
-                            <th>role</th>
+                            <th>NOMBRE</th>
+                            <th>APELLIDO</th>
+                            <th>EMAIL</th>
+                            <th>ROLE</th>
+                            <th>ACCIONES</th>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>2</td>
-                                <td>3</td>
-                                <td>4</td>
+                            <tr *ngFor="let usuario of rowSelectionTable.data">
+                                <td>{{usuario.first_name}}</td>
+                                <td>{{usuario.last_name}}</td>
+                                <td>{{usuario.email}}</td>
+                                <td>{{usuario.role['name']}}</td>
+                                <td>
+                                    <a 
+                                        routerLink="#"
+                                        class="btn btn-sm btn-warning"
+                                        data-toggle="tooltip"
+                                        data-original-title="Editar"
+                                    >
+                                        <i nz-icon nzType="edit" nzTheme="outline"></i>
+                                    </a>
+                                    <a 
+                                        (click)="borrarUsuario(usuario)"
+                                        class="btn btn-sm btn-danger"
+                                        data-toggle="tooltip"
+                                        data-original-title="Borrar"
+                                    >
+                                        <i nz-icon nzType="delete" nzTheme="outline"></i>
+                                    </a>
+                                </td>
                             </tr>
                         </tbody>
-                    </table>
+                    </nz-table>
                 </div>
             </div>
         </div>
