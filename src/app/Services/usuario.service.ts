@@ -9,7 +9,6 @@ import { map, catchError } from 'rxjs/operators';
 /*Interfaces y clases*/
 import { EmpresaRegistro } from 'src/app/Models/empresa.model';
 import { Usuario } from 'src/app/Models/usuario.model';
-import { UsuarioAll } from 'src/app/models/usuario.interface';
 
 const API_URL = environment.API;
 
@@ -20,7 +19,6 @@ const API_URL = environment.API;
 export class UsuarioService {
   public headers: HttpHeaders;
   public userToken: string;
-  public usuariosAll: UsuarioAll[] = [];
   public usuarios: Usuario[] = [];
   public usuario: Usuario;
 
@@ -30,9 +28,9 @@ export class UsuarioService {
 
   getAllUsuarios(): Observable<any>{
     return this.http.get(`${API_URL}/usuarios`, {headers: this.headers}).pipe(
-      map((usuarios: UsuarioAll[])=> {
+      map((usuarios: Usuario[])=> {
         
-        return this.usuariosAll = usuarios
+        return this.usuarios = usuarios
         
       }),
       catchError(error=>{return throwError('ERROR al obtener usuarios', error)})
@@ -57,7 +55,6 @@ export class UsuarioService {
     let params = JSON.stringify(empresa)
     return this.http.post(`${API_URL}/auth/registro`, params, {headers: this.headers}).pipe(
       map(response=> {
-
         return response;
       }),
       catchError(error=>{
@@ -106,9 +103,36 @@ export class UsuarioService {
     return this.userToken;
   }
 
-  actualizarUsuario(usuario: UsuarioAll){
-    let params = JSON.stringify(usuario);
-    return this.http.put(`${API_URL}/usuarios/${usuario._id}`, params, {headers: this.headers}).pipe(
+  agregarUsuario(usuario: Usuario){
+    const {first_name, last_name, email, password, role } = usuario
+    const { name } = role;
+    let usuarioInsertar = {
+      first_name: first_name,
+      last_name: last_name,
+      email: email,
+      password: password,
+      role: name
+    }
+
+    let params = JSON.stringify(usuarioInsertar);
+    
+    return this.http.post(`${API_URL}/usuarios`, params, {headers: this.headers}).pipe(
+      map(response=> response),
+      catchError(error=> throwError('ERROR al agregar usuario', error))
+    )
+  }
+  actualizarUsuario(usuario: Usuario, id:string){
+    const {first_name, last_name, email, password, role } = usuario
+    const { name } = role;
+    let usuarioActualizar = {
+      first_name: first_name,
+      last_name: last_name,
+      email: email,
+      password: password,
+      role: name
+    }
+    let params = JSON.stringify(usuarioActualizar);
+    return this.http.put(`${API_URL}/usuarios/${id}`, params, {headers: this.headers}).pipe(
       map(response=>{
         return response;
       }),

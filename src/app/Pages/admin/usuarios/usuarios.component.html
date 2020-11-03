@@ -27,7 +27,12 @@
                     </div>
                     <div class="col-4 mb-2">
                         <div class="text-right">
-                            <button nz-button nzType="primary" nzValue="large">
+                            <button
+                                routerLink="nuevo" 
+                                nz-button 
+                                nzType="primary"
+                                nzValue="large"
+                            >
                                 <i nz-icon nzType="user-add" nzTheme="outline"></i>
                                 <span>Crear Usuario</span>
                             </button>
@@ -58,7 +63,7 @@
                                 <td>{{usuario.role['name']}}</td>
                                 <td>
                                     <a 
-                                        routerLink="#"
+                                        [routerLink]="['editar', usuario._id]"
                                         class="btn btn-sm btn-warning"
                                         data-toggle="tooltip"
                                         data-original-title="Editar"
@@ -66,10 +71,10 @@
                                         <i nz-icon nzType="edit" nzTheme="outline"></i>
                                     </a>
                                     <a 
-                                        (click)="borrarUsuario(usuario)"
                                         class="btn btn-sm btn-danger"
                                         data-toggle="tooltip"
                                         data-original-title="Borrar"
+                                        (click)="borrarUsuario(usuario)"
                                     >
                                         <i nz-icon nzType="delete" nzTheme="outline"></i>
                                     </a>

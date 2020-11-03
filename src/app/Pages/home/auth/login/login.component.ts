@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
     }else{
       //console.log(this.loginForm.value)
       const {email, password } = this.loginForm.value
-      this.usuario = new Usuario('','', email, password, null,'');
+      this.usuario = new Usuario('','','', email, password, null,'');
       this.usuarioService.iniciarSesion(this.usuario).subscribe(
         (usuario: Usuario)=>{
           console.log(usuario);

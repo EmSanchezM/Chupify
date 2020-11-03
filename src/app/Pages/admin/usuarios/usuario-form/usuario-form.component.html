@@ -19,11 +19,11 @@
                                     class="form-control"
                                     placeholder="Nombre"
                                     formControlName="first_name"
-                                    [class.is-invalid]="nombreNoValido">
+                                >
 
-                                <small *ngIf="nombreNoValido" class="text-danger">
+                                <!--<small *ngIf="nombreNoValido" class="text-danger">
                                     Ingrese al menos 5 letras
-                                </small>
+                                </small>-->
                             </div>
                         </div>
                     </div>
@@ -36,16 +36,16 @@
                                     class="form-control"
                                     placeholder="Apellido"
                                     formControlName="last_name"
-                                    [class.is-invalid]="apellidoNoValido">
-                                <small *ngIf="apellidoNoValido" class="text-danger">
+                                >
+                                <!--<small *ngIf="apellidoNoValido" class="text-danger">
                                     Ingrese el apellido
-                                </small>
+                                </small>-->
                             </div>
                         </div>
                     </div>
 
                     <div class="form-group row">
-                        <label for="" class=" col-sm-3 control-label">Correo</label>
+                        <label for="" class=" col-sm-3 control-label">Correo Electronico</label>
                         <div class="col-sm-9">
                             <div class="input-group">
                                 <input 
@@ -53,31 +53,47 @@
                                     class="form-control" 
                                     placeholder="Email"
                                     formControlName="email"
-                                    [class.is-invalid]="correoNoValido">
-                                <small *ngIf="correoNoValido" class="text-danger">
+                                >
+                                <!--<small *ngIf="correoNoValido" class="text-danger">
                                     Ingrese el correo
-                                </small>
+                                </small>--->
                             </div>
                         </div>
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-sm-3 control-label">Rol de Usuario</label>
+                        <label for="password" class="col-sm-3 control-label">Contraseña</label>
                         <div class="col-sm-9">
                             <div class="input-group">
-                                <select class="form-control" formControlName="rolesUser">
-                                    <option disabled value="">Seleccione el rol</option>
-                                    <option *ngFor="let rol of roles" [ngValue]="rol.value">{{rol.name}}</option>
-                                </select>
+                                <input 
+                                    type="text" 
+                                    class="form-control"
+                                    placeholder="Contraseña"
+                                    formControlName="password"
+                                >
                             </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="rol" class="col-sm-3 control-label">Rol de Usuario</label>
+                        <div class="col-sm-9">
+                            <select formControlName="role" class="form-control">
+                                <option disabled value="">Seleccione un rol de Usuario</option>
+                                <option *ngFor="let rol of roles" [ngValue]="rol.rolName">{{rol.rolName}}</option>
+                            </select>
                         </div>
                     </div>
 
                     <div class="form-group row m-b-0">
                         <div class="offset-sm-3 col-sm-9">
-                            <button type="submit"
-                                    class="btn btn-success waves-effect waves-light">
-                                <i class="fa fa-save"></i>
+                            <button 
+                                type="submit"
+                                nz-button
+                                nzType="primary"
+                                class="btn btn-success"
+                            >
+                                <i nz-icon nzType="save" nzTheme="outline"></i>
                                 Guardar
                             </button>
                         </div>

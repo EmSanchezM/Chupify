@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 /*MODELOS */
 import { Usuario } from 'src/app/Models/usuario.model';
-import { UsuarioAll } from 'src/app/Models/usuario.interface';
+
 /*SERVICIOS*/
 import { UsuarioService } from 'src/app/Services/usuario.service';
 
@@ -14,7 +14,7 @@ export class UsuariosComponent implements OnInit {
 
   public status: Boolean = false;
   public mensaje:string = '';
-  public usuarios: UsuarioAll[] = [];
+  public usuarios: Usuario[] = [];
 
   constructor(private usuarioService: UsuarioService) { }
 
@@ -24,13 +24,11 @@ export class UsuariosComponent implements OnInit {
 
   getUsuarios(){
     this.usuarioService.getAllUsuarios().subscribe(response=>{
-      console.log(response['role']);
-     
       this.usuarios = response;
     }) 
   }
 
-  borrarUsuario(usuario: UsuarioAll){
+  borrarUsuario(usuario: Usuario){
     this.usuarioService.borrarUsuario(usuario._id).subscribe(
       response=>{
         console.log(response)
@@ -46,6 +44,5 @@ export class UsuariosComponent implements OnInit {
       }
     )
   }
-
   
 }

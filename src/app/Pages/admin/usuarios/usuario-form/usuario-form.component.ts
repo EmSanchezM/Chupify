@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { delay } from 'rxjs/operators';
 
 import { Usuario } from 'src/app/Models/usuario.model';
+import { Role } from 'src/app/Models/role.model';
 
 import { UsuarioService } from 'src/app/Services/usuario.service';
 
@@ -20,6 +21,13 @@ export class UsuarioFormComponent implements OnInit {
 
   public status: Boolean = false;
   public mensaje: string = '';
+  public statusCRUD: string = '';
+
+  public roles: any[] = [
+    {key: 0, rolName: 'USER_ROLE'},
+    {key: 1, rolName:'EMPRESA_ROLE'},
+    {key: 2, rolName:'ADMIN_ROLE'}
+  ]
 
   constructor(
     private fb: FormBuilder,
@@ -63,7 +71,7 @@ export class UsuarioFormComponent implements OnInit {
       last_name: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.email]],
       password:['',[Validators.required, Validators.minLength(4)]],
-      role: ['', Validators.required]
+      role: new FormControl('', Validators.required)
     })
   }
 
@@ -74,6 +82,39 @@ export class UsuarioFormComponent implements OnInit {
       return Object.values( this.formUsuario.controls ).forEach( control => { control.markAsTouched(); });
     }else{
       console.log(this.formUsuario.value);
+      const {first_name, last_name, email, password, role} = this.formUsuario.value
+      const roleUser = new Role('', role);
+      const usuario = new Usuario('',first_name, last_name, email, password, roleUser,'');
+
+      if(params.id){
+        let id = params.id;
+        //const usuario = new Usuario('',first_name, last_name, email, password, roleUser,'');
+        /*ACTUALIZAMOS USUARIO*/
+        this.status = true;
+        this.usuarioService.actualizarUsuario(usuario, id).subscribe(
+          response=>{
+            this.statusCRUD = 'UPDATE';
+            this.mensaje = 'Usuario actualizado exitosamente!';
+            console.log(response);
+          },
+          error=>{
+            console.error(error);
+          }
+        )
+        this.router.navigateByUrl('usuarios');
+      }else{
+        this.status = false;
+        
+        this.usuarioService.agregarUsuario(usuario).subscribe(
+          response=>{
+            this.statusCRUD = 'AGREGAR';
+            this.mensaje = 'Usuario agregado exitosamente!';
+            console.log(response);
+          },
+          error=>{ console.error('ERROR al agregar ', error)}
+        )
+        this.router.navigateByUrl('usuarios');
+      }
     }
   }
 
