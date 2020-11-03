@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-8">
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Cuenta</h4>
@@ -11,7 +11,7 @@
 
                 <form [formGroup]="formUsuario" (ngSubmit)="onUsuarioForm()" class="form-horizontal p-t-20">
                     <div class="form-group row">
-                        <label for="first_name" class=" col-sm-3 control-label">Nombre</label>
+                        <label for="first_name" class="col-sm-3 control-label">Nombre</label>
                         <div class="col-sm-9">
                             <div class="input-group">
                                 <input 
@@ -19,16 +19,16 @@
                                     class="form-control"
                                     placeholder="Nombre"
                                     formControlName="first_name"
+                                    [class.is-invalid]="nameNoValido"
                                 >
-
-                                <!--<small *ngIf="nombreNoValido" class="text-danger">
-                                    Ingrese al menos 5 letras
-                                </small>-->
+                                <small *ngIf="nameNoValido" class="text-danger">
+                                    Ingrese al menos 3 letras
+                                </small>
                             </div>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="" class=" col-sm-3 control-label">Apellido</label>
+                        <label for="" class="col-sm-3 control-label">Apellido</label>
                         <div class="col-sm-9">
                             <div class="input-group">
                                 <input 
@@ -36,16 +36,17 @@
                                     class="form-control"
                                     placeholder="Apellido"
                                     formControlName="last_name"
+                                    [class.is-invalid]="lastNameNoValido"
                                 >
-                                <!--<small *ngIf="apellidoNoValido" class="text-danger">
+                                <small *ngIf="lastNameNoValido" class="text-danger">
                                     Ingrese el apellido
-                                </small>-->
+                                </small>
                             </div>
                         </div>
                     </div>
 
                     <div class="form-group row">
-                        <label for="" class=" col-sm-3 control-label">Correo Electronico</label>
+                        <label for="" class="col-sm-3 control-label">Correo Electronico</label>
                         <div class="col-sm-9">
                             <div class="input-group">
                                 <input 
@@ -53,10 +54,11 @@
                                     class="form-control" 
                                     placeholder="Email"
                                     formControlName="email"
+                                    [class.is-invalid]="correoNoValido"
                                 >
-                                <!--<small *ngIf="correoNoValido" class="text-danger">
+                                <small *ngIf="correoNoValido" class="text-danger">
                                     Ingrese el correo
-                                </small>--->
+                                </small>
                             </div>
                         </div>
                     </div>
@@ -66,11 +68,33 @@
                         <div class="col-sm-9">
                             <div class="input-group">
                                 <input 
-                                    type="text" 
+                                    type="password" 
                                     class="form-control"
                                     placeholder="Contraseña"
                                     formControlName="password"
+                                    [class.is-invalid]="passwordNoValida"
                                 >
+                                <small *ngIf="passwordNoValida" class="text-danger">
+                                    Mínimo 6 caracteres
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="repeatpassword" class="col-sm-3 control-label">Repita su Contraseña</label>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                <input 
+                                    type="password" 
+                                    class="form-control"
+                                    placeholder="Repita su Contraseña"
+                                    formControlName="repeatpassword"
+                                    [class.is-invalid]="repeatPasswordNoValida"
+                                >
+                                <small *ngIf="repeatPasswordNoValida" class="text-danger">
+                                    Contraseña no coincide
+                                </small>
                             </div>
                         </div>
                     </div>
@@ -91,7 +115,7 @@
                                 type="submit"
                                 nz-button
                                 nzType="primary"
-                                class="btn btn-success"
+                                class="btn btn-block"
                             >
                                 <i nz-icon nzType="save" nzTheme="outline"></i>
                                 Guardar
