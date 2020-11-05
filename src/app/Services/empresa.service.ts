@@ -26,6 +26,7 @@ export class EmpresaService {
   getAllEmpresas(): Observable<any>{
     return this.http.get(`${API_URL}/empresas`, {headers: this.headers}).pipe(
       map((empresas: Empresa[])=>{
+        console.log('EMPRESAS ', empresas)
         return this.empresas = empresas;
       }),
       catchError(error=>{ return throwError('ERROR al obtener empresas ', error)})

@@ -19,6 +19,7 @@ export class EmpresasComponent implements OnInit {
   constructor(private empresaService: EmpresaService) { }
 
   ngOnInit(): void {
+    this.getEmpresas()
   }
 
   getEmpresas(){
