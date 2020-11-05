@@ -65,7 +65,8 @@ export class UsuarioFormComponent implements OnInit {
           first_name: response.first_name,
           last_name: response.last_name,
           email: response.email,
-          password: response.password,
+          password: '',
+          repeatpassword: '',
           role: this.roles[index]['rolName']
         }
 
@@ -91,7 +92,7 @@ export class UsuarioFormComponent implements OnInit {
     if(this.formUsuario.invalid){
       return Object.values( this.formUsuario.controls ).forEach( control => { control.markAsTouched(); });
     }else{
-      console.log(this.formUsuario.value);
+      //console.log(this.formUsuario.value);
       const {first_name, last_name, email, password, role} = this.formUsuario.value
       const roleUser = new Role('', role);
       const usuario = new Usuario('',first_name, last_name, email, password, roleUser,'');
