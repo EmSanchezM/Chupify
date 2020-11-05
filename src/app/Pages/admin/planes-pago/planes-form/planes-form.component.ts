@@ -84,10 +84,11 @@ export class PlanesFormComponent implements OnInit {
             this.status = true;
             this.mensaje = 'Plan de Pago actualizado exitosamente!';
             console.log(response);
+            this.router.navigateByUrl('admin/planes-pago');
           },
           error=> console.error(error)
         )
-        this.router.navigateByUrl('admin/planes-pago');
+       
       }else{
         this.planEditarStatus = false;
         this.planesPagoService.createPlanPago(planPago).subscribe(
@@ -95,10 +96,11 @@ export class PlanesFormComponent implements OnInit {
             this.status = true;
             this.mensaje = 'Plan de pago agregado exitosamente!';
             console.log(response);
+            this.router.navigateByUrl('admin/planes-pago');
           }, 
           error=> console.error('ERROR al agregar plan ', error)
         )
-        this.router.navigateByUrl('admin/planes-pago');
+        
       }
     }
   }
