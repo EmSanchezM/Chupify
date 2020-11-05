@@ -1,17 +1,13 @@
-export class EmpresaRegistro{
+import { Usuario } from './usuario.model';
+import { PlanPago } from './planPago.model';
+
+export class Empresa{
     constructor(
-        public first_name: string,
-        public last_name: string,
-        public email: string,
-        public password: string,
-        public role: string,
+        public _id: string,
         public name: string,
         public rubro: string,
         public tienda: string,
-        public planpay: string
+        public usuario: Usuario,
+        public plan_pago: PlanPago
     ){}
-
-    get fullName(){
-        return `${this.first_name} ${this.last_name}`;
-    }
 }

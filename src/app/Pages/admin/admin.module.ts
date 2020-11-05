@@ -9,8 +9,8 @@ import {AdminComponent} from './admin.component';
 import { EstadisticasComponent } from './estadisticas/estadisticas.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { UsuarioFormComponent } from './usuarios/usuario-form/usuario-form.component';
-//import { EmpresasComponent } from './empresas/empresas.component';
-//import { EmpresasFormComponent } from './empresas/empresas-form/empresas-form.component';
+import { EmpresasComponent } from './empresas/empresas.component';
+import { EmpresasFormComponent } from './empresas/empresas-form/empresas-form.component';
 import { PlanesPagoComponent } from './planes-pago/planes-pago.component';
 import { PlanesFormComponent } from './planes-pago/planes-form/planes-form.component';
 
@@ -20,8 +20,8 @@ import { PlanesFormComponent } from './planes-pago/planes-form/planes-form.compo
         EstadisticasComponent,
         UsuariosComponent,
         UsuarioFormComponent,
-        //EmpresasComponent,
-        //EmpresasFormComponent,
+        EmpresasComponent,
+        EmpresasFormComponent,
         PlanesPagoComponent,
         PlanesFormComponent,
     ],
@@ -29,7 +29,7 @@ import { PlanesFormComponent } from './planes-pago/planes-form/planes-form.compo
         AdminComponent,
         EstadisticasComponent,
         UsuariosComponent,
-        //EmpresasComponent,
+        EmpresasComponent,
         PlanesPagoComponent
     ],
     imports: [

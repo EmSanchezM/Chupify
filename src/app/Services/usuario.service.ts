@@ -7,7 +7,7 @@ import { Observable, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
 /*Interfaces y clases*/
-import { EmpresaRegistro } from 'src/app/Models/empresa.model';
+import { EmpresaRegistro } from 'src/app/Models/auth.model';
 import { Usuario } from 'src/app/Models/usuario.model';
 
 const API_URL = environment.API;

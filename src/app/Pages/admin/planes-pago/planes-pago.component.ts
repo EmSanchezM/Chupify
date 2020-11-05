@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-/*MODELOS */
+/*MODELOS*/
 import { PlanPago } from 'src/app/Models/planPago.model';
 
 /*SERVICIOS*/

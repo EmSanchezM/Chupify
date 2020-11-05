@@ -1,0 +1,89 @@
+<div class="row animated fadeIn fast">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                
+                <input type="text"
+                        class="form-control"
+                        placeholder="Buscar Empresa..."
+                        #txtTermino
+                        />
+
+            </div>
+        </div>
+    </div>
+</div> 
+
+<div class="row mt-2">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-8">
+                        <h4 class="card-title">Empresas ({{empresas.length}})</h4>
+                        <div class="alert alert-danger" *ngIf="status">
+                            <span>{{ mensaje }}</span>
+                        </div>
+                    </div>
+                    <div class="col-4 mb-2">
+                        <div class="text-right">
+                            <button
+                                routerLink="nuevo" 
+                                nz-button 
+                                nzType="primary"
+                                nzValue="large"
+                            >
+                                <i nz-icon nzType="user-add" nzTheme="outline"></i>
+                                <span>Crear Empresa</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-responsive mt-2">
+                    <nz-table
+                        class="table table-bordered" 
+                        #basicTable 
+                        #rowSelectionTable
+                        [nzData]="empresas"
+                        [nzPageSize]="5"
+                        nzShowPagination
+                        >
+                        <thead>
+                            <th>NOMBRE</th>
+                            <th>RUGRO</th>
+                            <th>TIENDA</th>
+                            <th>PLAN PAGO</th>
+                            <th>ACCIONES</th>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let empresa of rowSelectionTable.data">
+                                <td>{{empresa.name}}</td>
+                                <td>{{empresa.rubro}}</td>
+                                <td>{{empresa.tienda}}</td>
+                                <td>{{empresa.plan_pago['name']}</td>
+                                <td>
+                                    <a 
+                                        [routerLink]="['editar', empresa._id]"
+                                        class="btn btn-sm btn-warning"
+                                        data-toggle="tooltip"
+                                        data-original-title="Editar"
+                                    >
+                                        <i nz-icon nzType="edit" nzTheme="outline"></i>
+                                    </a>
+                                    <a 
+                                        class="btn btn-sm btn-danger"
+                                        data-toggle="tooltip"
+                                        data-original-title="Borrar"
+                                        (click)="borrarEmpresa(empresa)"
+                                    >
+                                        <i nz-icon nzType="delete" nzTheme="outline"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </nz-table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
