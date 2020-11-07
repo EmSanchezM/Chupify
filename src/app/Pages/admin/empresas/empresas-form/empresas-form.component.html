@@ -1,1 +1,273 @@
-<p>empresas-form works!</p>
+<div class="row">
+    <div class="col-md-10">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Empresa</h4>
+                <hr>
+                <nz-steps [nzCurrent]="current">
+                    <nz-step nzTitle="Datos de Usuario"></nz-step>
+                    <nz-step nzTitle="Datos de empresa"></nz-step>
+                    <nz-step nzTitle="Confirma tus datos"></nz-step>
+                </nz-steps>
+                <div class="step-content">
+                    <form [formGroup]="formEmpresa" (ngSubmit)="onEmpresaForm()" class="mt-2">
+                        <div class="row">
+                            <div class="col-md-8" *ngIf="index === 'Usuario'">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Datos de Usuario</h4>
+                                        <hr>
+                                        <div class="form-group col-md-12">
+                                            <label for="first_name_user">Nombre</label>
+                                            <div class="input-group">
+                                                <input 
+                                                    type="text"
+                                                    class="form-control"
+                                                    placeholder="Nombre"
+                                                    formControlName="first_name_user"
+                                                    [class.is-invalid]="nombreUsuarioNoValido"
+                                                >
+                                                <small *ngIf="nombreUsuarioNoValido" class="text-danger">
+                                                    El nombre es requerido, mínimo 3 letras
+                                                </small>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label for="last_name_user">Apellido</label>
+                                            <div class="input-group">
+                                                <input 
+                                                    type="text"
+                                                    class="form-control"
+                                                    placeholder="Apellido"
+                                                    formControlName="last_name_user"
+                                                    [class.is-invalid]="apellidoUsuarioNoValido"
+                                                >
+                                                <small *ngIf="apellidoUsuarioNoValido" class="text-danger">
+                                                    El apellido es requerido, mínimo 3 letras
+                                                </small>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label for="email_user">Correo</label>
+                                            <div class="input-group">
+                                                <input 
+                                                    type="text"
+                                                    class="form-control"
+                                                    placeholder="Correo electronico"
+                                                    formControlName="email_user"
+                                                    [class.is-invalid]="correoNoValido"
+                                                >
+                                                <small *ngIf="correoNoValido" class="text-danger">
+                                                    El correo es requerido, example: usuario@usuario.com
+                                                </small>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label for="password_user">Contraseña</label>
+                                            <div class="input-group">
+                                                <input 
+                                                    type="text"
+                                                    class="form-control"
+                                                    placeholder="Contraseña"
+                                                    formControlName="password"
+                                                    [class.is-invalid]="passwordNoValida"
+                                                >
+                                                <small *ngIf="passwordNoValida" class="text-danger">
+                                                    La contraseña es requerida
+                                                </small>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label for="repeatpassword_user">Repita su Contraseña</label>
+                                            <div class="input-group">
+                                                <input 
+                                                    type="text"
+                                                    class="form-control"
+                                                    placeholder="Repita su Contraseña"
+                                                    formControlName="repeatpassword_user"
+                                                    [class.is-invalid]="repeatPasswordNoValida"
+                                                >
+                                                <small *ngIf="repeatPasswordNoValida" class="text-danger">
+                                                    Las contraseñas no coinciden
+                                                </small>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label for="role_user">Rol de Usuario</label>
+                                            <div class="input-group">
+                                                <input 
+                                                    type="text"
+                                                    class="form-control"
+                                                    placeholder="EMPRESA_ROLE"
+                                                    disabled
+                                                    formControlName="role_user"
+                                                >
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-8" *ngIf="index === 'Empresa'">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Datos de Empresa</h4>
+                                        <hr>
+                                        <div class="form-group col-md-12">
+                                            <label for="name_empresa" class="control-label">Nombre</label>
+                                            <div class="input-group">
+                                                <input 
+                                                    type="text"
+                                                    class="form-control"
+                                                    placeholder="Nombre de la Empresa"
+                                                    formControlName="name_empresa"
+                                                    [class.is-invalid]="nombreEmpresaNoValido"
+                                                >
+                                                <small *ngIf="nombreEmpresaNoValido" class="text-danger">
+                                                    El nombre de la empresa es requerido
+                                                </small>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label for="rubro" class="control-label">Rugro</label>
+                                            <div class="input-group">
+                                                <input 
+                                                    type="text"
+                                                    class="form-control"
+                                                    placeholder="Rugro de la empresa"
+                                                    formControlName="rubro"
+                                                    [class.is-invalid]="rugroNoValido"
+                                                >
+                                                <small *ngIf="rugroNoValido" class="text-danger">
+                                                    El rugro de la empresa es requerido
+                                                </small>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label for="tienda" class="control-label">Nombre de la Tienda</label>
+                                            <div class="input-group">
+                                                <input 
+                                                    type="text"
+                                                    class="form-control"
+                                                    placeholder="Nombre de la tienda web"
+                                                    formControlName="tienda"
+                                                    [class.is-invalid]="nombreTiendaNoValido"
+                                                >
+                                                <small *ngIf="nombreTiendaNoValido" class="text-danger">
+                                                    El nombre de la tienda Web es requerido
+                                                </small>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label for="pago">Plan de Pago</label>
+                                            <div class="input-group">
+                                                <select formControlName="pago" class="form-control">
+                                                    <option disabled value="">Seleccione un plan de pago</option>
+                                                    <option *ngFor="let plan of planesPago" [ngValue]="plan.name">{{plan.name}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12" *ngIf="index ==='Confirmar'">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Confirma tus datos</h4>
+                                    <hr>
+                                    <div class="alert alert-success" *ngIf="status">
+                                        <span>{{ mensaje }}</span>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <h4 class="card-title">Datos de Usuario</h4>
+                                                    <hr>
+                                                    <div class="form-group col-md-12">
+                                                        <label for="">Nombre</label>
+                                                        <h4 class="card-title">{{formEmpresa.value.first_name_user}}</h4>
+                                                    </div>
+                                                    <div class="form-group col-md-12">
+                                                        <label for="">Apellido</label>
+                                                        <h4 class="card-title">{{formEmpresa.value.last_name_user}}</h4>
+                                                    </div>
+                                                    <div class="form-group col-md-12">
+                                                        <label for="">Correo electronico</label>
+                                                        <h4 class="card-title">{{formEmpresa.value.email_user}}</h4>
+                                                    </div>
+                                                    <div class="form-group col-md-12">
+                                                        <label for="">Contraseña</label>
+                                                        <h4 class="card-title">{{formEmpresa.value.password}}</h4>
+                                                    </div>
+                                                    <div class="form-group col-md-12">
+                                                        <label for="">Confirma su contraseña</label>
+                                                        <h4 class="card-title">{{formEmpresa.value.repeatpassword_user}}</h4>
+                                                    </div>
+                                                    <div class="form-group col-md-12">
+                                                        <label for="">Rol de Usuario</label>
+                                                        <h4 class="card-title">{{formEmpresa.value.role_user}}</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <h4 class="card-title">Datos de Empresa</h4>
+                                                    <hr>
+                                                    <div class="form-group col-md-12">
+                                                        <label for="">Nombre de la empresa</label>
+                                                        <h4 class="card-title">{{formEmpresa.value.name_empresa}}</h4>
+                                                        <small *ngIf="nombreEmpresaNoValido">
+                                                            El nombre de la empresa es requerido
+                                                        </small>
+                                                    </div>
+                                                    <div class="form-group col-md-12">
+                                                        <label for="">Rugro de la empresa</label>
+                                                        <h4 class="card-title">{{formEmpresa.value.rubro}}</h4>
+                                                    </div>
+                                                    <div class="form-group col-md-12">
+                                                        <label for="">Tienda web</label>
+                                                        <h4 class="card-title">{{formEmpresa.value.tienda}}</h4>
+                                                    </div>
+                                                    <div class="form-group col-md-12">
+                                                        <label for="">Plan de Pago</label>
+                                                        <h4 class="card-title">{{formEmpresa.value.first_name_user}}</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group mt-2">
+                                        <button
+                                            type="submit"
+                                            nz-button
+                                            nz-Type="primary"
+                                            class="btn"
+                                        >
+                                            <i nz-icon nzType="save" nzTheme="outline"></i>
+                                            Guardar
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="steps-action">
+                    <button nz-button nzType="default" (click)="pre()" *ngIf="current > 0">
+                        <span>Anterior</span>
+                    </button>
+                    <button nz-button nzType="default" (click)="next()" *ngIf="current < 2">
+                        <span>Siguiente</span>
+                    </button>
+                    <button nz-button nzType="default" (click)="done()" *ngIf="current === 2">
+                        <span>Confirmar</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
