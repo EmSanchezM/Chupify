@@ -5,10 +5,14 @@ import { EstadisticasComponent } from './estadisticas/estadisticas.component';
 //CRUD USUARIOS
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { UsuarioFormComponent } from './usuarios/usuario-form/usuario-form.component';
+//CRUD PLANES DE PAGO
 import { PlanesPagoComponent } from './planes-pago/planes-pago.component';
 import { PlanesFormComponent } from './planes-pago/planes-form/planes-form.component';
+//CRUD EMPRESAS
 import { EmpresasComponent } from './empresas/empresas.component';
 import { EmpresasFormComponent } from './empresas/empresas-form/empresas-form.component';
+//GESTION DE TEMAS
+import { PlantillasComponent } from './plantillas/plantillas.component';
 
 const childAdminRoutes: Routes = [
     {
@@ -50,6 +54,10 @@ const childAdminRoutes: Routes = [
     {
         path: 'planes-pago/editar/:id',
         component: PlanesFormComponent
+    },
+    {
+        path: 'plantillas',
+        component: PlantillasComponent
     }
 ];
 

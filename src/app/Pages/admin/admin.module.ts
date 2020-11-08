@@ -13,6 +13,7 @@ import { EmpresasComponent } from './empresas/empresas.component';
 import { EmpresasFormComponent } from './empresas/empresas-form/empresas-form.component';
 import { PlanesPagoComponent } from './planes-pago/planes-pago.component';
 import { PlanesFormComponent } from './planes-pago/planes-form/planes-form.component';
+import { PlantillasComponent } from './plantillas/plantillas.component';
 
 @NgModule({
     declarations: [
@@ -24,6 +25,7 @@ import { PlanesFormComponent } from './planes-pago/planes-form/planes-form.compo
         EmpresasFormComponent,
         PlanesPagoComponent,
         PlanesFormComponent,
+        PlantillasComponent,
     ],
     exports: [
         AdminComponent,
