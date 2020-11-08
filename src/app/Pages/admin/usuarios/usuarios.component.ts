@@ -29,20 +29,26 @@ export class UsuariosComponent implements OnInit {
   }
 
   borrarUsuario(usuario: Usuario){
-    this.usuarioService.borrarUsuario(usuario._id).subscribe(
-      response=>{
-        console.log(response)
-        if(response['ok']){
-          this.status = true;
-          this.mensaje = `${response['message']} exitosamente!`;
+    let confirm = window.confirm('¿Estas seguro de eliminarlo?');
+    if(confirm){
+      this.usuarioService.borrarUsuario(usuario._id).subscribe(
+        response=>{
+          console.log(response)
+          if(response['ok']){
+            this.status = true;
+            this.mensaje = `${response['message']} exitosamente!`;
+          }
+          this.getUsuarios();
+        },
+        error=>{
+          this.status = false;
+          this.mensaje = `${error}`
         }
-        this.getUsuarios();
-      },
-      error=>{
-        this.status = false;
-        this.mensaje = `${error}`
-      }
-    )
+      )
+    }else{
+      return;
+    }
+    
   }
   
 }

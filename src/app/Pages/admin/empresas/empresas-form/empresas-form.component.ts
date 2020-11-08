@@ -29,12 +29,6 @@ export class EmpresasFormComponent implements OnInit {
   public current = 0;
   public index = 'Usuario';
   
-  public roles: any[] = [
-    {key: 0, rolName: 'USER_ROLE'},
-    {key: 1, rolName:'EMPRESA_ROLE'},
-    {key: 2, rolName:'ADMIN_ROLE'}
-  ];
-
   public planesPago: PlanPago[] = [];
 
   constructor(
@@ -60,7 +54,6 @@ export class EmpresasFormComponent implements OnInit {
     )
   }
 
-
   cargarEmpresa(id: string){
     if(id === undefined){
       return false;
@@ -69,26 +62,19 @@ export class EmpresasFormComponent implements OnInit {
       response=>{
         if(!response) this.router.navigateByUrl('admin/empresas');
         this.empresaEditar = response;
-        console.log(response);
-        let index = 0;
-        for(let i=0; i<this.roles.length; i++){
-          
-          if(this.roles[i]['rolName'] == response.role['name']){
-            index = this.roles[i]['key'];
-          }
-        }
+        console.log(response.usuario.first_name);
         
         const empresaForm = {
-          first_name_user: response.usuario['first_name'],
-          last_name_user: response.usuario['last_name'],
-          email_user: response.usuario['email'],
-          password: response.usuario['password'],
-          repeatpassword_user: response.usuario['password'],
-          role_user: this.roles[index]['rolName'],
+          first_name_user: response.usuario.first_name,
+          last_name_user: response.usuario.last_name,
+          email_user: response.usuario.email,
+          password: ':)',
+          repeatpassword_user: ':)',
+          role_user: 'EMPRESA_ROLE',
           name_empresa: response.name,
           rubro: response.rubro,
           tienda: response.tienda,
-          pago: response.plan_pago['name']
+          pago: response.plan_pago.name ? `${response.plan_pago.name}`: 0
         }
 
         this.formEmpresa.setValue(empresaForm);
@@ -103,7 +89,6 @@ export class EmpresasFormComponent implements OnInit {
       email_user: ['', [Validators.required, Validators.minLength(1)]],
       password: ['',[Validators.required, Validators.minLength(6)]],
       repeatpassword_user: ['',[Validators.required]],
-      role_user: new FormControl('', Validators.required),
       name_empresa: ['', [Validators.required, Validators.minLength(3)]],
       rubro: ['', [Validators.required, Validators.minLength(3)]],
       tienda: ['', [Validators.required, Validators.minLength(5)]],
@@ -113,7 +98,7 @@ export class EmpresasFormComponent implements OnInit {
 
   onEmpresaForm(){
     const params = this.activatedRoute.snapshot.params;
-
+    console.log(this.formEmpresa.value)
     if(this.formEmpresa.invalid){
       return Object.values( this.formEmpresa.controls ).forEach( control => { control.markAsTouched(); });
     }else{
@@ -121,21 +106,20 @@ export class EmpresasFormComponent implements OnInit {
         first_name_user,
         last_name_user,
         email_user,
-        password,
-        role_user, 
+        password, 
         name_empresa,
         rubro,
         tienda,
         pago } = this.formEmpresa.value;
       
-      const roleUser = new Role('', role_user);
+      const roleUser = new Role('', 'EMPRESA_ROLE');
       const usuario = new Usuario('',first_name_user, last_name_user, email_user, password, roleUser,'');
-      const empresa = new Empresa('', name_empresa, rubro, tienda, usuario, pago);
+      const plan_pago = new PlanPago('', pago, '','', '');
+      const empresa = new Empresa('', name_empresa, rubro, tienda, usuario, plan_pago);
       
       if(params.id){
         let id = params.id;
         /*ACTUALIZAMOS EMPRESA*/
-        
         this.empresaService.actualizarEmpresa(empresa, id).subscribe(
           response => {
             this.status = true;

@@ -28,20 +28,25 @@ export class PlanesPagoComponent implements OnInit {
   }
 
   borrarPlan(planPago: PlanPago){
-    this.planesPagoService.borrarPlanPago(planPago._id).subscribe(
-      response=>{
-        console.log(response);
-        if(response['ok']){
-          this.status = true;
-          this.mensaje = `${response['message']} exitosamente!`;
+    let confirm = window.confirm('¿Estas seguro de eliminarlo?');
+    if(confirm){
+      this.planesPagoService.borrarPlanPago(planPago._id).subscribe(
+        response=>{
+          console.log(response);
+          if(response['ok']){
+            this.status = true;
+            this.mensaje = `${response['message']} exitosamente!`;
+          }
+          this.getPlanesPago();
+        }, 
+        error=>{
+          this.status = false;
+          this.mensaje = `${error}`
         }
-        this.getPlanesPago();
-      }, 
-      error=>{
-        this.status = false;
-        this.mensaje = `${error}`
-      }
-    )
+      )
+    }else{
+      return;
+    }
   }
 
 }

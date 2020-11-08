@@ -29,20 +29,26 @@ export class EmpresasComponent implements OnInit {
   }
 
   borrarEmpresa(empresa: Empresa){
-    this.empresaService.borrarEmpresa(empresa._id).subscribe(
-      response=>{
-        console.log(response);
-        if(response['ok']){
-          this.status = true;
-          this.mensaje = `${response['message']} exitosamente!`;
+    let confirm = window.confirm('¿Estas seguro que deseas eliminar empresa?');
+    if(confirm){
+      this.empresaService.borrarEmpresa(empresa._id).subscribe(
+        response=>{
+          console.log(response);
+          if(response['ok']){
+            this.status = true;
+            this.mensaje = `${response['message']} exitosamente!`;
+          }
+          this.getEmpresas();
+        }, 
+        error=>{
+          this.status = false;
+          this.mensaje = `${error}`
         }
-        this.getEmpresas();
-      }, 
-      error=>{
-        this.status = false;
-        this.mensaje = `${error}`
-      }
-    )
+      )
+    }else{
+      return;
+    }
+    
   }
 
 }

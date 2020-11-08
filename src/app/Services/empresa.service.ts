@@ -53,7 +53,7 @@ export class EmpresaService {
       name: name,
       rubro: rubro,
       tienda: tienda,
-      planpay: plan_pago.name
+      pago: plan_pago.name
     }
 
     let params = JSON.stringify(empresaInsertar);
@@ -67,7 +67,7 @@ export class EmpresaService {
   actualizarEmpresa(empresa: Empresa, id:string){
     const { name, rubro, tienda, usuario, plan_pago } = empresa
     const { first_name, last_name, email, password, role } = usuario;
-
+    console.log(plan_pago.name)
     let empresaActualizar = {
       first_name: first_name,
       last_name: last_name,
@@ -79,6 +79,7 @@ export class EmpresaService {
       tienda: tienda,
       pago: plan_pago.name
     }
+    console.log(empresaActualizar);
     let params = JSON.stringify(empresaActualizar);
     return this.http.put(`${API_URL}/empresas/${id}`, params, {headers: this.headers}).pipe(
       map(response=>{

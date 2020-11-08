@@ -25,8 +25,7 @@ export class UsuarioFormComponent implements OnInit {
 
   public roles: any[] = [
     {key: 0, rolName: 'USER_ROLE'},
-    {key: 1, rolName:'EMPRESA_ROLE'},
-    {key: 2, rolName:'ADMIN_ROLE'}
+    {key: 1, rolName:'ADMIN_ROLE'}
   ]
 
   constructor(
@@ -101,10 +100,10 @@ export class UsuarioFormComponent implements OnInit {
         let id = params.id;
         
         /*ACTUALIZAMOS USUARIO*/
-        this.status = true;
         this.usuarioService.actualizarUsuario(usuario, id).subscribe(
           response=>{
             this.statusCRUD = 'UPDATE';
+            this.status = true;
             this.mensaje = 'Usuario actualizado exitosamente!';
             console.log(response);
           },
@@ -114,11 +113,11 @@ export class UsuarioFormComponent implements OnInit {
         )
         this.router.navigateByUrl('admin/usuarios');
       }else{
-        this.status = false;
         
         this.usuarioService.agregarUsuario(usuario).subscribe(
           response=>{
             this.statusCRUD = 'AGREGAR';
+            this.status = true;
             this.mensaje = 'Usuario agregado exitosamente!';
             console.log(response);
           },
