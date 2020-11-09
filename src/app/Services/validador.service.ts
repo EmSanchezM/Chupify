@@ -41,7 +41,7 @@ export class ValidadorService{
           console.log(response)
           this.usuarios = response;
           this.usuarios.map(usuario=>{
-            console.log(usuario.email, emailControl.value);
+            //console.log(usuario.email, emailControl.value);
             if(usuario.email === emailControl.value){
               emailControl.setErrors({existeEmail: true});
             }else{
@@ -51,7 +51,6 @@ export class ValidadorService{
         }
       )
       return null;
-    }
-    
+    }    
   }
 }

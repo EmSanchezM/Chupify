@@ -47,8 +47,7 @@ export class PlanesPagoService {
         return response;
       }),
       catchError(error=>{
-        console.log('ERROR ', error.message)
-        return throwError('ERROR al crear plan de pago');
+        return throwError('ERROR al crear plan de pago', error);
       })
     )
   }

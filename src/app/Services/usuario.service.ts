@@ -59,7 +59,7 @@ export class UsuarioService {
       }),
       catchError(error=>{
         console.log('error', error.message)
-        return throwError('ERROR al registrar empresa');
+        return throwError('ERROR al registrar empresa', error);
       })
     );
   }
@@ -121,6 +121,7 @@ export class UsuarioService {
       catchError(error=> throwError('ERROR al agregar usuario', error))
     )
   }
+  
   actualizarUsuario(usuario: Usuario, id:string){
     const {first_name, last_name, email, password, role } = usuario
     const { name } = role;

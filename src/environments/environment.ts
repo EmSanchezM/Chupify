@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  API: 'http://localhost:4000/api'
+  API: 'https://apichupify.herokuapp.com/api'
 };
 
 /*

@@ -26,7 +26,6 @@ export class EmpresaService {
   getAllEmpresas(): Observable<any>{
     return this.http.get(`${API_URL}/empresas`, {headers: this.headers}).pipe(
       map((empresas: Empresa[])=>{
-        console.log('EMPRESAS ', empresas)
         return this.empresas = empresas;
       }),
       catchError(error=>{ return throwError('ERROR al obtener empresas ', error)})
@@ -79,7 +78,7 @@ export class EmpresaService {
       tienda: tienda,
       pago: plan_pago.name
     }
-    console.log(empresaActualizar);
+    
     let params = JSON.stringify(empresaActualizar);
     return this.http.put(`${API_URL}/empresas/${id}`, params, {headers: this.headers}).pipe(
       map(response=>{
@@ -101,6 +100,5 @@ export class EmpresaService {
       })
     )
   }
-
 
 }
