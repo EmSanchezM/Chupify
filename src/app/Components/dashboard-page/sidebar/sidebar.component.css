@@ -1,4 +1,5 @@
 nz-sider {
+    background-color: #F2E9E4;
     overflow: auto;
     height: 100%;
     position: fixed;
@@ -6,14 +7,24 @@ nz-sider {
 }
 
 nz-header {
-    background: #fff;
+    background-color: #fff;
     padding: 0;
-    /*margin-left: 180px;*/
+}
 
+ul{
+    background-color: #F2E9E4 !important;
+}
+
+ul li a {
+    color: gray;
+}
+
+ul li a:hover{
+    color: blue;
 }
 
 
-.logo {
+.logo img{
     height: 32px;
     background: rgba(255, 255, 255, 0.2);
     margin: 16px;

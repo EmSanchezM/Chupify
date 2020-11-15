@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { SharedHomeModule } from '../../Components/shared.module';
 
-import {AdminComponent} from './admin.component';
+import { AdminComponent } from './admin.component';
 import { EstadisticasComponent } from './estadisticas/estadisticas.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { UsuarioFormComponent } from './usuarios/usuario-form/usuario-form.component';

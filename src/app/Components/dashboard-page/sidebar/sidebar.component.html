@@ -4,7 +4,9 @@
     [nzTrigger]="null"
     >
     
-    <div class="logo"></div>
+    <div class="logo">
+        <img class="img-fluid" src="../../../../assets/images/logo/logo-2.png" alt="LOGO">
+    </div>
     <nz-header>
         <i nz-icon class="trigger" [nzType]="isCollapse ? 'menu-unfold' : 'menu-fold'" (click)="isCollapse = !isCollapse"></i>
     </nz-header>
@@ -35,7 +37,7 @@
         </li>
         <li nz-menu-item>
             <a routerLink="plantillas">
-                <i nz-icon nzType="dollar-circle" nzTheme="outline"></i>
+                <i nz-icon nzType="html5" nzTheme="outline"></i>
                 <span>Gestion de Plantillas</span>
             </a>
         </li>
