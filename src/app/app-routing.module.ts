@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HomeRoutingModule } from './Pages/home/home.routing';
 import { AdminRoutingModule } from './Pages/admin/admin.routing';
+import { AdminCompaniesRoutingModule } from './Pages/admin-companies/companies.routing';
 
 const routes: Routes = [
 
@@ -12,6 +13,7 @@ const routes: Routes = [
   imports: [
     HomeRoutingModule,
     AdminRoutingModule,
+    AdminCompaniesRoutingModule,
     RouterModule.forRoot(routes)
   ],
   exports: [RouterModule]
