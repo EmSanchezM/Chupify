@@ -11,21 +11,32 @@ export class AdminComponent implements OnInit {
     {
       path: 'inicio',
       icono: 'home',
+      tema: 'fill',
       titulo: 'Inicio'    
+    },
+    {
+      path:'usuarios',
+      icono: 'user',
+      tema: 'outline',
+      titulo: 'Usuarios'
+
     },
     {
       path: 'empresas',
       icono: 'shop',
+      tema:'fill',
       titulo: 'Empresas'    
     },
     {
       path: 'planes-pago',
       icono: 'dollar-circle',
+      tema:'fill',
       titulo: 'Planes de Pago'    
     },
     {
       path: 'plantillas',
       icono: 'html5',
+      tema:'fill',
       titulo: 'Gestion de Plantillas'    
     },
     

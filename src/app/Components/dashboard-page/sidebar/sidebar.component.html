@@ -14,7 +14,7 @@
         <div *ngFor="let ruta of routes">
             <li nz-menu-item>
                 <a routerLink="{{ruta.path}}">
-                  <i nz-icon nzType="{{ruta.icono}}" nzTheme="fill"></i>
+                  <i nz-icon nzType="{{ruta.icono}}" nzTheme="{{ruta.tema}}"></i>
                   <span>{{ruta.titulo}}</span>
                 </a>
               </li>

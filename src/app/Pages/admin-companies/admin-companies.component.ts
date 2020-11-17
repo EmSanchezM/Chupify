@@ -11,12 +11,14 @@ export class AdminCompaniesComponent implements OnInit {
     {
       path: 'archivos',
       icono: 'file-add',
-      titulo: 'Gestion de archivos'    
+      tema:'fill',
+      titulo: 'Gestión de archivos'    
     },
     {
       path:'paginas',
       icono: 'html5',
-      titulo: 'Gestion de paginas'
+      tema:'fill',
+      titulo: 'Gestión de páginas'
     }
   ]
   

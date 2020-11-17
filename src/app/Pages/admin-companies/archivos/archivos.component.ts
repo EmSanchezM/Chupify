@@ -48,6 +48,7 @@ export class ArchivosComponent implements OnInit {
       status: 'error'
     }
   ];
+  
   previewImage: string | undefined = '';
   previewVisible = false;
 
