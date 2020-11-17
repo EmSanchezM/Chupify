@@ -11,35 +11,13 @@
         <i nz-icon class="trigger" [nzType]="isCollapse ? 'menu-unfold' : 'menu-fold'" (click)="isCollapse = !isCollapse"></i>
     </nz-header>
     <ul nz-menu nzTheme="dark" nzMode="inline">
-        <li nz-menu-item>
-            <a routerLink="inicio">
-                <i nz-icon nzType="home" nzTheme="fill"></i>
-                <span>Inicio</span>
-            </a>
-        </li>
-        <li nz-menu-item>
-            <a routerLink="usuarios">
-                <i nz-icon nzType="user" nzTheme="outline"></i>
-                <span>Usuarios</span>
-            </a>
-        </li>
-        <li nz-menu-item>
-            <a routerLink="empresas">
-                <i nz-icon nzType="shop" nzTheme="outline"></i>
-                <span>Empresas</span>
-            </a>
-        </li>
-        <li nz-menu-item>
-            <a routerLink="planes-pago">
-                <i nz-icon nzType="dollar-circle" nzTheme="outline"></i>
-                <span>Planes de Pago</span>
-            </a>
-        </li>
-        <li nz-menu-item>
-            <a routerLink="plantillas">
-                <i nz-icon nzType="html5" nzTheme="outline"></i>
-                <span>Gestion de Plantillas</span>
-            </a>
-        </li>
+        <div *ngFor="let ruta of routes">
+            <li nz-menu-item>
+                <a routerLink="{{ruta.path}}">
+                  <i nz-icon nzType="{{ruta.icono}}" nzTheme="fill"></i>
+                  <span>{{ruta.titulo}}</span>
+                </a>
+              </li>
+        </div>
     </ul>
 </nz-sider>

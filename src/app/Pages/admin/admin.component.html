@@ -1,5 +1,7 @@
 <nz-layout class="layout">
-    <admin-sidebar></admin-sidebar>
+    <admin-sidebar
+        [routes]="routes" 
+    ></admin-sidebar>
     <nz-layout class="right-layout">
         <nz-content>
             <router-outlet></router-outlet>

@@ -7,6 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminCompaniesComponent implements OnInit {
 
+  routes:any = [
+    {
+      path: 'archivos',
+      icono: 'file-add',
+      titulo: 'Gestion de archivos'    
+    },
+    {
+      path:'paginas',
+      icono: 'html5',
+      titulo: 'Gestion de paginas'
+    }
+  ]
+  
+
   constructor() { }
 
   ngOnInit(): void {

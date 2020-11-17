@@ -10,10 +10,9 @@ import { Router } from '@angular/router';
 export class SidebarAdminComponent implements OnInit {
 
   @Input() isCollapse = false;
+  @Input() routes: any; 
 
-  constructor() { 
-   
-  }
+  constructor() { }
 
   ngOnInit(): void {
     
