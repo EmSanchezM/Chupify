@@ -11,6 +11,8 @@ import { AppComponent } from './app.component';
 
 import { PagesHomeModule } from './Pages/home/home.module';
 import { PagesAdminModule } from './Pages/admin/admin.module';
+import { PagesAdminCompaniesModule } from './Pages/admin-companies/companies.module';
+
 import { FormsModule } from '@angular/forms';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -19,11 +21,12 @@ import { es_ES } from 'ng-zorro-antd/i18n';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     PagesHomeModule,
     PagesAdminModule,
+    PagesAdminCompaniesModule,
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,

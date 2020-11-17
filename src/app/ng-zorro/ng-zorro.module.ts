@@ -8,6 +8,8 @@ import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { NzStepsModule } from 'ng-zorro-antd/steps';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzUploadModule } from 'ng-zorro-antd/upload';
+import { NzModalModule } from 'ng-zorro-antd/modal';
 
 @NgModule({
   exports: [
@@ -17,7 +19,9 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
     NzStepsModule,
     NzCollapseModule,
     NzTableModule,
-    NzButtonModule
+    NzButtonModule,
+    NzUploadModule,
+    NzModalModule
   ],
   imports: [
     CommonModule,
@@ -27,7 +31,9 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
     NzStepsModule,
     NzCollapseModule,
     NzTableModule,
-    NzButtonModule
+    NzButtonModule,
+    NzUploadModule,
+    NzModalModule
   ]
 })
 export class NgZorroModule { }
