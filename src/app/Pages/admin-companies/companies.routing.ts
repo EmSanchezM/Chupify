@@ -8,7 +8,6 @@ const routes: Routes = [
         path: 'admin-companies',
         component: AdminCompaniesComponent,
         loadChildren: () => import('./child-routes.module').then( m => m.ChildAdminCompaniesRoutesModule )
-   
     }
 ];
 @NgModule({
