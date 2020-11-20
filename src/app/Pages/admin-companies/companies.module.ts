@@ -7,12 +7,14 @@ import { SharedHomeModule } from '../../Components/shared.module';
 
 import { AdminCompaniesComponent } from './admin-companies.component';
 import { ArchivosComponent } from './archivos/archivos.component';
+import { PaginasComponent } from './paginas/paginas.component';
 
 
 @NgModule({
     declarations: [
         AdminCompaniesComponent,
-        ArchivosComponent
+        ArchivosComponent,
+        PaginasComponent
     ],
     exports: [
         AdminCompaniesComponent,

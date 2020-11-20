@@ -60,7 +60,7 @@ export class LoginComponent implements OnInit {
               this.router.navigateByUrl('admin')
             }else if(name==='EMPRESA_ROLE'){
               alert('soy empresa')
-              this.router.navigateByUrl('admin')
+              this.router.navigateByUrl('admin-companies')
             }
           }
         }
