@@ -22,25 +22,25 @@ export class ArchivosComponent implements OnInit {
       uid: '-1',
       name: 'image.png',
       status: 'done',
-      url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png'
+      url: 'assets/images/tiendas/cosmetics-shop.png'
     },
     {
       uid: '-2',
       name: 'image.png',
       status: 'done',
-      url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png'
+      url: 'assets/images/tiendas/gold-shop.png'
     },
     {
       uid: '-3',
       name: 'image.png',
       status: 'done',
-      url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png'
+      url: 'assets/images/tiendas/natural-shop.png'
     },
     {
       uid: '-4',
       name: 'image.png',
       status: 'done',
-      url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png'
+      url: 'assets/images/tiendas/decoraciones.jpg'
     },
     {
       uid: '-5',

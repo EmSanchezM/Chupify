@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
             }else if(name==='CLIENTE_ROLE'){
               this.router.navigateByUrl('admin/inicio')
             }else if(name==='EMPRESA_ROLE'){
-              this.router.navigateByUrl('admin-companies')
+              this.router.navigateByUrl('admin-companies/archivos')
             }
           }
         }
