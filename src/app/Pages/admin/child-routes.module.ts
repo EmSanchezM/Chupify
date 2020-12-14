@@ -13,6 +13,8 @@ import { EmpresasComponent } from './empresas/empresas.component';
 import { EmpresasFormComponent } from './empresas/empresas-form/empresas-form.component';
 //GESTION DE TEMAS
 import { PlantillasComponent } from './plantillas/plantillas.component';
+//CERRAR SESION
+import { LogoutComponent } from './logout/logout.component';
 
 const childAdminRoutes: Routes = [
     {
@@ -58,6 +60,10 @@ const childAdminRoutes: Routes = [
     {
         path: 'plantillas',
         component: PlantillasComponent
+    },
+    {
+        path: 'logout',
+        component: LogoutComponent
     }
 ];
 

@@ -1,3 +1,5 @@
+
+
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -21,11 +23,11 @@ export class UsuarioFormComponent implements OnInit {
 
   public status: Boolean = false;
   public mensaje: string = '';
-  public statusCRUD: string = '';
 
   public roles: any[] = [
     {key: 0, rolName: 'USER_ROLE'},
-    {key: 1, rolName:'ADMIN_ROLE'}
+    {key: 1, rolName:'ADMIN_ROLE'},
+    {key: 2, rolName:'EMPRESA_ROLE'}
   ]
 
   constructor(
@@ -59,7 +61,7 @@ export class UsuarioFormComponent implements OnInit {
             index = this.roles[i]['key'];
           }
         }
-        
+        console.log(this.roles[index]['rolName'])        
         const usuarioForm = {
           first_name: response.first_name,
           last_name: response.last_name,
@@ -102,7 +104,6 @@ export class UsuarioFormComponent implements OnInit {
         /*ACTUALIZAMOS USUARIO*/
         this.usuarioService.actualizarUsuario(usuario, id).subscribe(
           response=>{
-            this.statusCRUD = 'UPDATE';
             this.status = true;
             this.mensaje = 'Usuario actualizado exitosamente!';
             console.log(response);
@@ -116,7 +117,6 @@ export class UsuarioFormComponent implements OnInit {
         
         this.usuarioService.agregarUsuario(usuario).subscribe(
           response=>{
-            this.statusCRUD = 'AGREGAR';
             this.status = true;
             this.mensaje = 'Usuario agregado exitosamente!';
             console.log(response);
@@ -128,7 +128,6 @@ export class UsuarioFormComponent implements OnInit {
     }
   }
 
-  /*first_name, last_name, email, password, role */
   //Validaciones
   get nameNoValido() {
     return this.formUsuario.get('first_name').invalid && this.formUsuario.get('first_name').touched

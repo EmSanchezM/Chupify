@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { ArchivosComponent } from './archivos/archivos.component';
 import { PaginasComponent } from './paginas/paginas.component';
+import { LogoutComponent } from './logout/logout.component'
 
 const childAdminCompaniesRoutes: Routes = [
     {
@@ -12,6 +13,10 @@ const childAdminCompaniesRoutes: Routes = [
     {
         path:'paginas',
         component: PaginasComponent
+    },
+    {
+        path:'logout',
+        component: LogoutComponent
     }
 ];
 

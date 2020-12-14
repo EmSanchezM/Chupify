@@ -87,11 +87,6 @@ export class UsuarioService {
   private guardarToken(token: string){
     this.userToken = token;
     localStorage.setItem('token', token);
-
-    /*let hoy = new Date();
-    hoy.setSeconds(3600);
-
-    localStorage.setItem('expira', hoy.getTime().toString());*/
   }
 
   private leerToken(){

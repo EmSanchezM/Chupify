@@ -39,6 +39,12 @@ export class AdminComponent implements OnInit {
       tema:'fill',
       titulo: 'Gestion de Plantillas'    
     },
+    {
+      path:'logout',
+      icono:'logout',
+      tema: 'outline',
+      titulo: 'Cerrar Sesión'
+    }
     
   ]
 

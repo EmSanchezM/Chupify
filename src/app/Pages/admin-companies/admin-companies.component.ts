@@ -19,6 +19,12 @@ export class AdminCompaniesComponent implements OnInit {
       icono: 'html5',
       tema:'fill',
       titulo: 'Gestión de páginas'
+    },
+    {
+      path:'logout',
+      icono:'logout',
+      tema: 'outline',
+      titulo: 'Cerrar Sesión'
     }
   ]
   

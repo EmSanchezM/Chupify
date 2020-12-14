@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EditorModule } from '@tinymce/tinymce-angular';
 
 import { SharedHomeModule } from '../../Components/shared.module';
 
@@ -14,6 +15,7 @@ import { EmpresasFormComponent } from './empresas/empresas-form/empresas-form.co
 import { PlanesPagoComponent } from './planes-pago/planes-pago.component';
 import { PlanesFormComponent } from './planes-pago/planes-form/planes-form.component';
 import { PlantillasComponent } from './plantillas/plantillas.component';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
     declarations: [
@@ -26,6 +28,7 @@ import { PlantillasComponent } from './plantillas/plantillas.component';
         PlanesPagoComponent,
         PlanesFormComponent,
         PlantillasComponent,
+        LogoutComponent,
     ],
     exports: [
         AdminComponent,
@@ -39,7 +42,8 @@ import { PlantillasComponent } from './plantillas/plantillas.component';
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
-        SharedHomeModule
+        SharedHomeModule,
+        EditorModule
     ]
 })
 export class PagesAdminModule { }
